@@ -1,0 +1,52 @@
+@use "./styles/colors";
+@use "./styles/corner" as c;
+
+@font-face {
+  font-family: 'fontawesome';
+  src: url('./fonts/fontawesome-webfont.woff2') format('woff2'),
+    url('./fonts/fontawesome-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.box {
+  @include c.rounded;
+  padding: 5px + c.$radius;
+  width: 100px;
+  height: 100px;
+
+  &.red {
+    background-color: colors.$app-red;
+  }
+
+  &.blue {
+    background-color: colors.$app-blue;
+  }
+
+  &.with-bg-image {
+    background-image: url('./assets/nintendo-switch-controller.jpeg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: colors.$app-black;
+  }
+}
+
+img {
+  width: 200px;
+  margin: 4px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.fa-icon::before {
+  font-family: fontawesome;
+  content: '\f0c7';
+  margin-right: 4px;
+}
